@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --color-zen-cream: #F5F2ED;
+  --color-zen-wood: #2C1810;
+  --color-zen-green: #5A5A40;
+  --color-zen-ink: #1A0F0A;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+/* High priority helper text and upload hint font sizing overrides */
+.ant-form-item-extra, 
+.el-form-item__description,
+.upload-hint,
+.helper-text,
+.upload-hint p,
+.helper-text p {
+    font-size: 14px !important;
+    color: #4b5563 !important; /* 標準深灰色，確保足夠對比度 */
+    line-height: 1.5 !important;
+    margin-top: 6px !important;
+    font-weight: 400 !important;
+}
+
+@layer base {
+  body {
+    @apply bg-zen-cream text-zen-ink font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+/* Admin Quill Editor Custom Styles */
+.admin-quill-editor .ql-toolbar.ql-snow {
+  border: none;
+  border-bottom: 1px solid #f5f5f4;
+  background: #fafaf9;
+  padding: 1rem;
+}
+
+.admin-quill-editor .ql-container.ql-snow {
+  border: none;
+  min-height: 200px;
+  font-family: inherit;
+  font-size: 0.875rem;
+}
+
+.admin-quill-editor .ql-editor {
+  padding: 1.5rem;
+  line-height: 1.6;
+}
+
+.admin-quill-editor .ql-editor.ql-blank::before {
+  left: 1.5rem;
+  font-style: italic;
+  color: #a8a29e;
+}
+
+.admin-quill-editor .ql-editor img {
+  border-radius: 1rem;
+  margin: 1rem 0;
+}
+
+/* Audio wave visualizer styles */
+@keyframes audio-bounce-1 {
+  0%, 100% { height: 4px; }
+  50% { height: 12px; }
+}
+@keyframes audio-bounce-2 {
+  0%, 100% { height: 6px; }
+  50% { height: 16px; }
+}
+@keyframes audio-bounce-3 {
+  0%, 100% { height: 3px; }
+  50% { height: 10px; }
+}
+@keyframes audio-bounce-4 {
+  0%, 100% { height: 5px; }
+  50% { height: 14px; }
+}
+
+.animate-audio-bar-1 {
+  animation: audio-bounce-1 0.8s ease-in-out infinite;
+}
+.animate-audio-bar-2 {
+  animation: audio-bounce-2 0.5s ease-in-out infinite;
+}
+.animate-audio-bar-3 {
+  animation: audio-bounce-3 0.7s ease-in-out infinite;
+}
+.animate-audio-bar-4 {
+  animation: audio-bounce-4 0.6s ease-in-out infinite;
+}
+
+/* Perfect infinite marquee animation */
+@keyframes marquee-loop {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-loop {
+  display: inline-flex;
+  animation: marquee-loop 24s linear infinite;
+}
+
