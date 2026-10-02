@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from './AuthContext';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
@@ -107,7 +107,7 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <CartProvider>
-          <BrowserRouter>
+          <HashRouter>
             <ScrollToTop />
             <Toaster position="top-center" reverseOrder={false} />
             <Routes>
@@ -168,7 +168,7 @@ export default function App() {
           {/* Fallback */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </CartProvider>
   </AuthProvider>
 </QueryClientProvider>
